@@ -1,0 +1,192 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --card-title-border-color: #FFD700;
+  --card-color-primary: #f7dd43;
+  --card-background-color: #006400;
+}
+
+
+
+
+ul {
+  list-style: none;
+}
+
+body {
+  background: rgb(46,139,87);
+  background: linear-gradient(
+    0deg,
+    
+    rgba(46,139,87,1) 0%,
+    rgba(128,128,0,1) 29%,
+    rgba(107,142,35,1) 50%,
+    rgba(240,230,140,1) 58%,
+    rgba(238,232,170,1) 71%,
+    rgba(18, 18, 20, 1) 92%
+  );
+}
+
+#app {
+  width: fit-content;
+  margin: auto;
+  padding-top: 53px;
+}
+#cards {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 53px;
+}
+header img:hover {
+  animation: giraGira 0.5s;
+}
+
+header img {
+  transition: 0.5s;
+}
+
+@keyframes giraGira {
+  33% {
+    transform: rotate(10deg);
+  }
+
+  66% {
+    transform: rotate(-10deg);
+  }
+  99% {
+    transform: rotate(0deg);
+  }
+}
+header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 63px;
+}
+
+div .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 23px;
+  background: var(--card-background-color);
+  border-bottom: 2px solid var(--card-color-primary);
+  border-radius: 6px;
+}
+
+.card div {
+  margin: 32px 69.5px 0 69.5px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.card div h2 {
+  color: #f7dd43;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-radius: 6px;
+  padding: 8px 16px;
+  border: 1px solid var(--card-title-border-color);
+}
+.card div span {
+  color: black;
+
+  font-size: 14px;
+}
+
+#app ul {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 53px;
+  align-items: center;
+}
+
+.card ul li + li {
+  padding-top: 24px;
+  border-top: 1px solid #323238;
+}
+
+#app li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 270px;
+}
+
+.card strong {
+  font-family: "Roboto";
+
+  font-weight: 900;
+  font-size: 36px;
+  text-align: center;
+
+  color: black;
+}
+
+.card h2:hover,
+.card ul li strong:hover,
+.card ul li img:hover {
+  transform: scale(1.1);
+}
+
+.card ul li strong:hover {
+  color: #FFD700;
+}
+
+.card h2,
+.card ul li strong,
+.card ul li img {
+  transition: 0.3s;
+}
+
+.card {
+  opacity: 0;
+  animation: appear 1s forwards;
+}
+@keyframes appear {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#backToTopButton {
+  position: fixed;
+  bottom: 1rem;
+  right: 2.5rem;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: 200ms;
+  transform: translateX(100%);
+}
+
+#backToTopButton.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+@media (min-width: 700px) {
+  div #cards {
+    justify-content: center;
+    max-width: 1100px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
